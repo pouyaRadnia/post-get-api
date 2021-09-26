@@ -6,6 +6,14 @@ import FullPost from '../components/FullPost/FullPost'
 import './Blog.css'
 
  class Blog extends React.Component {
+     state = {
+         posts:[]
+     }
+     componentDidMount() {
+         axios.get('https://jsonplaceholder.typicode.com/posts').then((response)=>{
+
+         })
+     }
      render () {
          return(
              <div className='blog'>
