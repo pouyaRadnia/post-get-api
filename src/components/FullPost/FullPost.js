@@ -4,13 +4,27 @@ import './FullPost.css'
 
 
 class FullPost extends React.Component {
+    state = {
+        loadedPost : null
+    }
+    componentDidUpdate () {
+        if (this.props.id) {
+            axios.get(`https://jsonplaceholder.typicode.com/posts/${this.props.id}`)
+            .then((response) => {
+                this.setState({loadedPost:response.data})
+            } )
+        }
+    }
     render() {
         let post = <p style={{textAlign:'center'}}>please select a post</p>
-        if (this.props.id){
+        if(this.props.id) {
+            post = <p>Loading</p>
+        }
+        if (this.state.loadedPost){
         post = (
             <div className='full-post'>
-                <h2>Title</h2>
-                <p>Content</p>
+                <h2>{this.state.loadedPost.title}</h2>
+                <p>{this.state.loadedPost.body}</p>
                 <div>
                     <button className='delete'>Delete</button>
                 </div>
