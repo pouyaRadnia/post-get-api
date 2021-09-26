@@ -15,10 +15,14 @@ import './Blog.css'
          })
      }
      render () {
+        const posts= this.state.posts.map((item)=>{
+            return <Post title={item.title} />
+        })
+
          return(
              <div className='blog'>
                  <section>
-                    
+                    {posts}
                  </section>
                  <section>
                     <FullPost />
