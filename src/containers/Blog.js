@@ -16,7 +16,7 @@ import './Blog.css'
      }
      render () {
         const posts= this.state.posts.map((item)=>{
-            return <Post title={item.title} />
+            return <Post key={item.id} title={item.title} />
         })
 
          return(
