@@ -7,7 +7,7 @@ import './Blog.css'
  class Blog extends React.Component {
      render () {
          return(
-             <div>
+             <div className='blog'>
                  <section>
                     <Post />
                     <Post />

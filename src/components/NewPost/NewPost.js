@@ -1,5 +1,5 @@
 import React from 'react'
-import 'NewPost.css'
+import './NewPost.css'
 
 class NewPost extends React.Component {
     state = {
@@ -10,7 +10,7 @@ class NewPost extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className='new-post'>
                 <h2>add aPost</h2>
                 <label>Title</label>
                 <input
@@ -36,3 +36,4 @@ class NewPost extends React.Component {
         )
     }
 }
+export default NewPost

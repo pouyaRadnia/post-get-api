@@ -1,0 +1,22 @@
+
+  .post {
+    background: #f3e5f5;
+    width: 250px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+  
+  }
+  
+  
+  .post h1 {
+    color: #9c27b0;
+  }
+  
+  .author {
+    margin: 16px 0;
+    color: #ce93d8;
+  }

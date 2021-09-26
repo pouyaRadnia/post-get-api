@@ -15,3 +15,4 @@ class FullPost extends React.Component {
         )
     }
 }
+export default FullPost

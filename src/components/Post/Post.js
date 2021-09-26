@@ -1,12 +1,13 @@
 import React from 'react'
-import 'Post.css'
+import './Post.css'
 
 const Post = (props) =>{
-    <article>
+    return( <article className='post'>
         <h1>title</h1>
-        <div>
+        <div className='author'>
             <div className='author'>Author</div>
         </div>
     </article>
+    )
 }
 export default Post
