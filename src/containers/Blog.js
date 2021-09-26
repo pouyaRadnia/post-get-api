@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import Post from '../components/Post/Post'
 import NewPost from '../components/NewPost/NewPost'
 import FullPost from '../components/FullPost/FullPost'
