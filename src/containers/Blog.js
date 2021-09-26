@@ -7,23 +7,33 @@ import './Blog.css'
 
  class Blog extends React.Component {
      state = {
-         posts:[]
+         posts:[],
+         selectedPostId:null
      }
+    
+           
      componentDidMount() {
          axios.get('https://jsonplaceholder.typicode.com/posts').then((response)=>{
-           const posts = response.data.slice(0,4)
-           const updatedPosts = posts.map((item)=> {
-                return {
-                    ...item,
-                    author:'pouya'
-                }
-           })
-           this.setState({posts:updatedPosts})
-         })
+             const posts = response.data.slice(0 , 4)
+             const updatedPost = posts.map((item)=>{
+                 return {
+                     ...item,
+                     author:'pouya'
+                 }
+             })
+             this.setState({posts : updatedPost})
+     })
+     }
+     selectPostHandler = (id) =>{
+        this.setState({selectedPostId:id})
      }
      render () {
         const posts= this.state.posts.map((item)=>{
-            return <Post key={item.id} title={item.title} author={item.author}/>
+            return <Post
+            click={()=>this.selectPostHandler(item.id)}
+             key={item.id} 
+             title={item.title} 
+             author={item.author}/>
         })
 
          return(
@@ -32,7 +42,7 @@ import './Blog.css'
                     {posts}
                  </section>
                  <section>
-                    <FullPost />
+                    <FullPost id={this.state.selectedPostId} />
                  </section>
                  <section>
                     <NewPost />
