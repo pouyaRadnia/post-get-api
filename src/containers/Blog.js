@@ -8,7 +8,9 @@ import './Blog.css'
  class Blog extends React.Component {
      state = {
          posts:[],
-         selectedPostId:null
+         selectedPostId:null,
+         error:false
+         
      }
     
            
@@ -23,19 +25,25 @@ import './Blog.css'
              })
              this.setState({posts : updatedPost})
      })
+     .catch((err)=>{
+        this.setState({error:true})
+     })
      }
      selectPostHandler = (id) =>{
         this.setState({selectedPostId:id})
      }
      render () {
-        const posts= this.state.posts.map((item)=>{
-            return <Post
-            click={()=>this.selectPostHandler(item.id)}
-             key={item.id} 
-             title={item.title} 
-             author={item.author}/>
-        })
-
+         let posts=<p style={{textAlign:'center'}}>Fetching data failed</p>
+         if(!this.state.error){
+             posts= this.state.posts.map((item)=>{
+                return <Post
+                click={()=>this.selectPostHandler(item.id)}
+                 key={item.id} 
+                 title={item.title} 
+                 author={item.author}/>
+            })
+         }
+      
          return(
              <div className='blog'>
                  <section>
