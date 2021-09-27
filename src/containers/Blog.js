@@ -9,7 +9,7 @@ import './Blog.css'
      state = {
          posts:[],
          selectedPostId:null,
-         error:false
+         error:false,
          
      }
     
@@ -26,7 +26,7 @@ import './Blog.css'
              this.setState({posts : updatedPost})
      })
      .catch((err)=>{
-        this.setState({error:true})
+        this.setState({error : true})
      })
      }
      selectPostHandler = (id) =>{
@@ -36,16 +36,31 @@ import './Blog.css'
          let posts=<p style={{textAlign:'center'}}>Fetching data failed</p>
          if(!this.state.error){
              posts= this.state.posts.map((item)=>{
-                return <Post
+                return(
+                     <Post
                 click={()=>this.selectPostHandler(item.id)}
                  key={item.id} 
                  title={item.title} 
-                 author={item.author}/>
+                 author={item.author}
+                 />
+                )
             })
          }
       
          return(
              <div className='blog'>
+                 <header>
+                     <nav>
+                         <ul>
+                             <li>
+                                 <a href='/'>Home</a>
+                             </li>
+                             <li>
+                                 <a href='/new-post'>New Post</a>
+                             </li>
+                         </ul>
+                     </nav>
+                 </header>
                  <section>
                     {posts}
                  </section>
