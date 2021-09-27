@@ -1,4 +1,5 @@
 import React from 'react'
+import {BrowserRouter as Router} from 'react-router-dom'
 
 
 import Blog from './containers/Blog'
@@ -6,10 +7,11 @@ import Blog from './containers/Blog'
 class App extends React.Component {
   render() {
     return (
-    
+    <Router>
       <div>
         <Blog />
       </div>
+      </Router>
       
     )
   }
