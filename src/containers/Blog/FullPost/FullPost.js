@@ -7,20 +7,20 @@ class FullPost extends React.Component {
     state = {
         loadedPost : null
     }
-    componentDidUpdate () {
-        if (this.props.id) {
+    componentDidMount () {
+        if (this.props.match.params.id) {
             if (
                 !this.state.loadedPost ||
-                (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)
+                (this.state.loadedPost && this.state.loadedPost.id !== this.props.match.params.id)
             )
-            axios.get(`https://jsonplaceholder.typicode.com/posts/${this.props.id}`)
+            axios.get(`https://jsonplaceholder.typicode.com/posts/${this.props.match.params.id}`)
             .then((response) => {
                 this.setState({loadedPost:response.data})
             } )
         }
     }
     deletePostHandler = () =>{
-        axios.delete(`https://jsonplaceholder.typicode.com/posts/${this.props.id}`)
+        axios.delete(`https://jsonplaceholder.typicode.com/posts/${this.props.match.params.id}`)
         .then((response)=>{
             console.log(response)
         })
@@ -28,7 +28,7 @@ class FullPost extends React.Component {
 
     render() {
         let post = <p style={{textAlign:'center'}}>please select a post</p>
-        if(this.props.id) {
+        if(this.props.match.params.id) {
             post = <p style={{textAlign:'center'}}>Loading</p>
         }
         if (this.state.loadedPost){
