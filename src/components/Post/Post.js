@@ -1,8 +1,8 @@
 import React from 'react'
 import './Post.css'
 
-const Post = (props) =>{
-    return( <article 
+const Post = (props) =>(
+   <article 
     onClick={props.click}
     className='post'>
         <h1>{props.title}</h1>
@@ -10,6 +10,6 @@ const Post = (props) =>{
             <div className='author'>{props.author}</div>
         </div>
     </article>
-    )
-}
+    
+)
 export default Post
