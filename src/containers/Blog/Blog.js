@@ -1,4 +1,5 @@
 import React from 'react'
+import {Route} from 'react-router-dom'
 import Posts from './Posts/Posts'
 import './Blog.css'
 
@@ -22,7 +23,7 @@ import './Blog.css'
                          </ul>
                      </nav>
                  </header>
-                 <Posts />
+                 <Route  />
              </div>
          )
      }
